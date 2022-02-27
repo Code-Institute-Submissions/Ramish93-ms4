@@ -1,1 +1,1 @@
-web: gunicorn takhleeq_kada.wsgi
+web: gunicorn config.wsgi

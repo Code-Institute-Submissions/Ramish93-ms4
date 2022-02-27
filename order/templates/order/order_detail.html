@@ -1,0 +1,22 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+  <div id="order-details" class="container">
+    <main>
+      <h1 class="page-heading">{{ object.subject }}</h1>
+      <dl>
+        <dt>Price</dt>
+        <dd>{{ object.price }}</dd>
+
+        <dt>Status</dt>
+        <dd>{{ object.status }}</dd>
+
+        <dt>Created At</dt>
+        <dd>{{ object.created_at }}</dd>
+
+        <dt>Preview</dt>
+        <dd><img src="{{ object.attachment.url }}" class="img-fluid"/></dd>
+      </dl>
+    </main>
+  </div>
+{% endblock %}

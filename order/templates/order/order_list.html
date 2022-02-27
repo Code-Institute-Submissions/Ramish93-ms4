@@ -1,0 +1,31 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+  <div id="order-list" class="container">
+    <main>
+      <h1 class="page-heading">Orders</h1>
+
+      {% for item in object_list %}
+        <div class="card" style="width: 18rem;">
+          <img src="{{ item.attachment.url }}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.subject }}</h5>
+            <p class="card-text">$ {{ item.price }}, {{ item.status }}</p>
+            <a href="{% url 'order_detail' item.id %}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mt-3">
+            {% include "common/_pagination.html" %}
+          </div>
+        </div>
+      {% empty %}
+        <div class="alert alert-warning fade show" role="alert">
+          <strong>Oh no!</strong> No record found.
+        </div>
+      {% endfor %}
+
+    </main>
+  </div>
+{% endblock %}

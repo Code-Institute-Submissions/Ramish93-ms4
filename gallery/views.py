@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 
-from gallery.models import GalleryItem
+from gallery.models import GalleryItem, Cart
 
 
 class GalleryItemListView(ListView):
@@ -10,3 +10,9 @@ class GalleryItemListView(ListView):
 
 class GalleryItemDetailView(DetailView):
     queryset = GalleryItem.objects.filter(is_active=True)
+
+
+class CartDetailView(DetailView):
+    def get_object(self, queryset=None):
+        # return Cart.objects.get(user_id=self.request.user.id)
+        return Cart.objects.first()

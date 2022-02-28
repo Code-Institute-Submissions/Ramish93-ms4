@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -25,6 +26,9 @@ class Order(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.id, self.subject)
+
+    def get_absolute_url(self):
+        return reverse('order_detail', kwargs={'pk': self.pk})
 
 
 class Testimonial(models.Model):

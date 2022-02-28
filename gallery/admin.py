@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gallery.models import GalleryItem
+from gallery.models import GalleryItem, Cart
 
 
 class GalleryItemAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class GalleryItemAdmin(admin.ModelAdmin):
 
 
 admin.site.register(GalleryItem, GalleryItemAdmin)
+admin.site.register(Cart)

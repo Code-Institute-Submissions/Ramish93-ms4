@@ -22,3 +22,13 @@ class GalleryItem(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.id, self.title)
+
+
+class Cart(models.Model):
+    gallery_items = models.ManyToManyField(GalleryItem, related_name="carts", related_query_name='cart')
+
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return 'Cart {}'.format(self.id)

@@ -3,7 +3,9 @@ env
 env/
 env/*
 
-media/
+media/*
+static/*
+!static/.gitkeep
 
 
 db.sqlite3

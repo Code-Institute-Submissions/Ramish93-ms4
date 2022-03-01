@@ -1,3 +1,6 @@
+.DS_Store
+
+
 *.pyc
 env
 env/
@@ -8,3 +11,6 @@ static/*
 !static/.gitkeep
 db.sqlite3
 local_settings.py
+
+.idea
+.idea/*

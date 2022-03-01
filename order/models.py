@@ -12,9 +12,9 @@ class Order(models.Model):
         ('Closed', 'Closed')
     )
 
-    subject = models.CharField(max_length=300, null=True, blank=True)
+    subject = models.CharField(max_length=300)
     description = models.TextField(max_length=3000, null=True, blank=True)
-    price = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=5)
+    price = models.DecimalField(max_digits=10, decimal_places=5)
 
     status = models.CharField(max_length=30, choices=STATUSES, null=True, blank=True)
     attachment = models.ImageField(upload_to='order_attachment/%Y/%m/%d/', default='')

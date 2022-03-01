@@ -25,22 +25,30 @@
   </style>
 
   <div id="order-details" class="container">
-  <main>
-    <h1 class="page-heading">Order Here</h1>
+    <main>
+      <h1 class="page-heading">Order Here</h1>
 
-    <div class="row mb-5">
-      <div class="col-8">
-        <form method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          <div class="row col-12">
-            {{ form.as_p }}
-          </div>
-          <div class="row col-12">
-            <input class="btn btn-primary" type="submit" value="Submit">
-          </div>
-        </form>
+      <div class="row mb-5">
+        <div class="col-8">
+          <form method="POST" enctype="multipart/form-data" id="order-form">
+            {% csrf_token %}
+            <div class="row col-12">
+              {{ form.as_p }}
+            </div>
+            <div class="row col-12">
+              <input id="order-btn-submit" class="btn btn-primary" type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
   </div>
+  <script>
+    $('#order-btn-submit').on('click', function (event) {
+      const form = $('#order-form').parsley();
+      if (form.validate()) {
+        $('#ask-fatwa-form').submit();
+      }
+    });
+  </script>
 {% endblock %}

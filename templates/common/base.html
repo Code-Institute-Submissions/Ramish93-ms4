@@ -36,6 +36,9 @@
         rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
 
   <script src="https://js.stripe.com/v3/"></script>
   <script src="{% static 'main.js' %}"></script>
@@ -50,48 +53,12 @@
       padding: 4rem 1rem;
       background-color: #708090;
     }
-
-    /* GLOBAL STYLES
-    -------------------------------------------------- */
-    /* Padding below the footer and lighter body text */
-
     body {
       padding-top: 3rem;
       padding-bottom: 3rem;
       color: #5a5a5a;
     }
 
-
-    /* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
-
-    /* Carousel base class */
-    .carousel {
-      margin-bottom: 4rem;
-    }
-    /* Since positioning the image, we need to help out the caption */
-    .carousel-caption {
-      bottom: 3rem;
-      z-index: 10;
-    }
-
-    /* Declare heights because of positioning of img element */
-    .carousel-item {
-      height: 32rem;
-    }
-    .carousel-item > img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      height: 32rem;
-    }
-
-
-    /* MARKETING CONTENT
-    -------------------------------------------------- */
-
-    /* Center align the text within the three columns below the carousel */
     .marketing .col-lg-4 {
       margin-bottom: 1.5rem;
       text-align: center;
@@ -106,14 +73,9 @@
     }
     /* rtl:end:ignore */
 
-
-    /* Featurettes
-    ------------------------- */
-
     .featurette-divider {
       margin: 5rem 0; /* Space out the Bootstrap <hr> more */
     }
-
     /* Thin out the marketing headings */
     .featurette-heading {
       font-weight: 300;
@@ -122,9 +84,7 @@
       letter-spacing: -.05rem;
     }
 
-
-    /* RESPONSIVE CSS
-    -------------------------------------------------- */
+    /* RESPONSIVE CSS -------------------------------------------------- */
 
     @media (min-width: 40em) {
       /* Bump up size of carousel content */
@@ -144,6 +104,42 @@
         margin-top: 7rem;
       }
     }
+
+    /* -------------------- Parsley CSS ------------------------ */
+    input.parsley-success,
+    select.parsley-success,
+    textarea.parsley-success {
+      color: #468847;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+
+    input.parsley-error,
+    select.parsley-error,
+    textarea.parsley-error {
+      color: #B94A48;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    .parsley-errors-list {
+      margin: 2px 0 3px;
+      padding: 0;
+      list-style-type: none;
+      font-size: 0.9em;
+      line-height: 0.9em;
+      opacity: 0;
+      color: #B94A48;
+
+      transition: all .3s ease-in;
+      -o-transition: all .3s ease-in;
+      -moz-transition: all .3s ease-in;
+      -webkit-transition: all .3s ease-in;
+    }
+
+    .parsley-errors-list.filled {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -161,6 +157,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+<script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+
 {% block extrascripts %}
 {% endblock %}
 </body>

@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-wnszfl4mcont@m(f#&qc!98r%_oe4g@h9i2x8ze2c#g@x2)f#3'
+SECRET_KEY = os.getenv('SECRET_KEY', 'not-a-secure-key')
 DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'localhost', ]
 INSTALLED_APPS = [
@@ -78,6 +78,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = 'media'
@@ -123,6 +124,9 @@ COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', 'Not-working')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'Not-working')
 
 try:
     from .local_settings import *

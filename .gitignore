@@ -7,8 +7,6 @@ env/
 env/*
 
 media/*
-static/*
-!static/.gitkeep
 db.sqlite3
 local_settings.py
 

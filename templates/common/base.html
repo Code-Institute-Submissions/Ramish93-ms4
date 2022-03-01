@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html>
 <head>
@@ -34,6 +36,9 @@
         rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossorigin="anonymous">
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="{% static 'main.js' %}"></script>
   <style>
     main {
       min-height: 100vh;

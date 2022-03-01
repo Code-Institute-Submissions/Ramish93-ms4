@@ -9,7 +9,8 @@
         {% for item in object_list %}
           <div class="col-3">
             <div class="card" style="width: 18rem;">
-              <img src="{{ item.attachment.url }}" class="card-img-top">
+{#              <img src="{{ item.attachment.url }}" class="card-img-top">#}
+              <img src="{{ item.attachment_as_url }}" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">{{ item.subject }}</h5>
                 <p class="card-text">$ {{ item.price }}, {{ item.status }}</p>

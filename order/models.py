@@ -18,6 +18,7 @@ class Order(models.Model):
 
     status = models.CharField(max_length=30, choices=STATUSES, null=True, blank=True)
     attachment = models.ImageField(upload_to='order_attachment/%Y/%m/%d/', default='')
+    attachment_as_url = models.URLField(max_length=1000, null=True, blank=True)
 
     is_active = models.BooleanField(default=True)
 

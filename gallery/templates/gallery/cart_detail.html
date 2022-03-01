@@ -15,7 +15,8 @@
         {% for item in object.gallery_items.all %}
           <div class="col-3">
             <div class="card" style="width: 18rem;">
-              <img src="{{ item.image.url }}" class="card-img-top">
+{#              <img src="{{ item.image.url }}" class="card-img-top">#}
+              <img src="{{ item.image_as_url }}" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
                 <p class="card-text">$ {{ item.price }}, {{ item.status }}</p>

@@ -14,6 +14,7 @@ class GalleryItem(models.Model):
     size = models.CharField(max_length=30, null=True, blank=True)
     status = models.CharField(max_length=30, choices=STATUSES, null=True, blank=True)
     image = models.ImageField(upload_to='gallery_item/%Y/%m/%d/', default='')
+    image_as_url = models.URLField(max_length=1000, null=True, blank=True)
 
     is_active = models.BooleanField(default=True)
 

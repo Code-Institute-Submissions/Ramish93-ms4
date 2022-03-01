@@ -15,7 +15,8 @@
         <dd>{{ object.created_at }}</dd>
 
         <dt>Preview</dt>
-        <dd><img src="{{ object.image.url }}" class="img-fluid"/></dd>
+{#        <dd><img src="{{ object.image.url }}" class="img-fluid"/></dd>#}
+        <dd><img src="{{ object.image_as_url }}" class="img-fluid"/></dd>
       </dl>
     </main>
   </div>

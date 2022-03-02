@@ -27,6 +27,7 @@
           {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
           {% else %}
+            <a class="btn btn-success" href="{% url 'signup_view' %}">Signup</a>
             <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
           {% endif %}
         </div>

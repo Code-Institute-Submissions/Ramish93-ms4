@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'home',
     'gallery',
     'order',
+    'signup',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,19 +58,12 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -127,6 +121,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', 'Not-working')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'Not-working')
+STRIPE_REDIRECT_URL = os.getenv('STRIPE_REDIRECT_URL', 'http://localhost:8005/')
 
 try:
     from .local_settings import *

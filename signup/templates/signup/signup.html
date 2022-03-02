@@ -1,0 +1,22 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+  <div id="singup-form-container" class="container">
+    <main>
+      <h1 class="page-heading">Signup</h1>
+
+      <div class="row">
+        <div class="col-6">
+          <form method="post" id="singup-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="btn btn-primary" type="submit" id="singup-form-submit">Sign Up</button>
+            <a href="/login" class="btn btn-link">Back to login</a>
+            <a href="/" class="btn btn-link">Home</a>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

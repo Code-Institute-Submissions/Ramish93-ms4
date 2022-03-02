@@ -29,7 +29,7 @@ class CheckoutConfigView(View):
 
 
 class CreateCheckoutSessionView(View):
-    domain_url = 'http://localhost:8005/'
+    domain_url = settings.STRIPE_REDIRECT_URL
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
     def get(self, request):

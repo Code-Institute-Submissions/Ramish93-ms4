@@ -24,7 +24,26 @@ fetch("/gallery/cart/checkout-config-view")
 
 
 
-$(document).ready(function(){
+$(document).ready(function() {
+  $('#order-btn-submit').on('click', function (event) {
+      const form = $('#order-form').parsley();
+      if (form.validate()) {
+        $('#order-form').submit();
+      }
+    });
+
+  $('#singup-form-submit').on('click', function (event) {
+      const form = $('#singup-form').parsley();
+      if (form.validate()) {
+        $('#singup-form').submit();
+      }
+    });
+
+  // --------------------------------------------------------
+  const allButtons = $('.btn');
+  const randbutton = allButtons[Math.floor(Math.random()*allButtons.length)];
+  $(randbutton).css('transform', 'scale(1.5, 1.5)');
+
     const colors = [
       '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
 		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',

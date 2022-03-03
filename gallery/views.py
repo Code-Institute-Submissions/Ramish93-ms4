@@ -18,12 +18,13 @@ class GalleryItemDetailView(DetailView):
 
 class CartDetailView(DetailView):
     def get_object(self, queryset=None):
-        return Cart.objects.get(user_id=self.request.user.id)
+        cart, created = Cart.objects.get_or_create(user_id=self.request.user.id)
+        return cart
 
 
 class AddRemoveToCartView(View):
     def get(self, request):
-        cart = Cart.objects.get(user_id=self.request.user.id)
+        cart, created = Cart.objects.get_or_create(user_id=self.request.user.id)
         gallery_item = GalleryItem.objects.get(pk=request.GET['id'])
         action = request.GET['action']
 

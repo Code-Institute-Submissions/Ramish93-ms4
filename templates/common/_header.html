@@ -18,7 +18,7 @@
           </li>
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'cart_detail' user.id %}">My Cart</a>
+              <a class="nav-link" href="{% url 'cart_detail' user.id %}" id="cart-link">My Cart</a>
             </li>
           {% endif %}
         </ul>

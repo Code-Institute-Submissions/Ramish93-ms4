@@ -18,8 +18,23 @@ class GalleryItemDetailView(DetailView):
 
 class CartDetailView(DetailView):
     def get_object(self, queryset=None):
-        # return Cart.objects.get(user_id=self.request.user.id)
-        return Cart.objects.first()
+        return Cart.objects.get(user_id=self.request.user.id)
+
+
+class AddRemoveToCartView(View):
+    def get(self, request):
+        cart = Cart.objects.get(user_id=self.request.user.id)
+        gallery_item = GalleryItem.objects.get(pk=request.GET['id'])
+        action = request.GET['action']
+
+        if action == 'add':
+            cart.gallery_items.add(gallery_item)
+            msg = '{} has been added in cart.'
+        else:
+            cart.gallery_items.remove(gallery_item)
+            msg = '{} has been removed from cart.'
+
+        return JsonResponse({'message': msg.format(gallery_item.title)})
 
 
 class CheckoutConfigView(View):

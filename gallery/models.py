@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
@@ -27,6 +28,7 @@ class GalleryItem(models.Model):
 
 class Cart(models.Model):
     gallery_items = models.ManyToManyField(GalleryItem, related_name="carts", related_query_name='cart')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)

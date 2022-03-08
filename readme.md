@@ -90,6 +90,8 @@ I wanted to make first-time user see what this web-app is about without reading 
  * __Color:__ Color for the website is dark with light contrast which is color of confidence and strength. To inspire user that is the first step and then they are able to build their dreme home.
  
  * __Layout:__ The website in medium screen is centered on all the pages and there is more content on the landing page. i made this design choice because centered view for medium screen is elegent and easy to read. Which , i think, gives it more aesthatic beauty.
+ * images are taken from free images Unsplash.
+ - [Images](https://unsplash.com/)
 
 ### __Technologies Used__:
 #### Languages:
@@ -121,6 +123,10 @@ I wanted to make first-time user see what this web-app is about without reading 
 * the carts of the webpage were not dynamic as you can see they are smashed into each other.
 * took me alot of time to fix them.
 * stripe payment had alot of bugs. i dont have a screenshot or code snippet to show but it took alot of time to resolve.
+![image of preview page](images/signinbug.png?raw=true "bug picture")
+![image of preview page](images/cartbug.png?raw=true "bug picture")
+![image of preview page](images/cartmobbug.png?raw=true "bug picture")
+* these are images of a few bugs that i encountered during developement. they were fixed.
 
 ---
 ### __Testing__:
@@ -128,9 +134,19 @@ I wanted to make first-time user see what this web-app is about without reading 
 * to make the password strong there are conditions to fullfill for password.
 * All the links in across all three pages take the user to desired location and they open in another page. 
 * The website is tested in __Android__: Samsung Note 3, Note 4, Galexy S8,S9 Moto 4G, Pixel 2 and 2XL, and __Apple__: Iphone 4,5,6,7,8 and X as well as Ipad and Ipad pro.
+- Lighthouse report:
+ ![Lighthouse](images/lightthouse.png?raw=true "Title")
+ * __Preview of Landing page__
+ ![Preview Landing](images/previewL.png?raw=true "Title")
+  * __Preview of Gallery page__
+ ![Preview Gallery](images/previewG.png?raw=true "Title")
+  * __Preview of Cart page__
+ ![Preview Cart](images/previewC.png?raw=true "Title")
+
 
 ### Wireframes:
 *  Please see the wire frames of the project below.
+* for Ipad size of all pages. I have two cards per row.
 - Landing Page:
  ![Wireframe of Landing page](wireframe/landing.png?raw=true "Title")
 
@@ -207,3 +223,4 @@ Access Website at: [localhost:8000](localhost:8000)
 
 ### Accessing Deployed Applications
 [https://ms4-takhleeq-kada.herokuapp.com/](https://ms4-takhleeq-kada.herokuapp.com/)
+

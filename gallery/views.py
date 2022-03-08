@@ -49,20 +49,25 @@ class CreateCheckoutSessionView(View):
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
     def get(self, request):
+        cart_items = request.user.cart.gallery_items.all()
+        line_items = list()
+        for item in cart_items:
+            line_items.append(
+                {
+                    'name': item.title,
+                    'quantity': 1,
+                    'currency': 'usd',
+                    'amount': str(int(item.price) * 100),
+                }
+            )
+
         try:
             checkout_session = stripe.checkout.Session.create(
                 success_url=self.domain_url + 'gallery/cart/payment_success?session_id={CHECKOUT_SESSION_ID}',
-                cancel_url=self.domain_url + 'gallery/cart/payment_cancelled/',
+                cancel_url=self.domain_url + 'gallery/cart/payment_cancelled',
                 payment_method_types=['card'],
                 mode='payment',
-                line_items=[
-                    {
-                        'name': 'Logos',
-                        'quantity': 1,
-                        'currency': 'usd',
-                        'amount': '2000',
-                    }
-                ]
+                line_items=line_items
             )
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
